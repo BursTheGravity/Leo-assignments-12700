@@ -1,0 +1,11 @@
+#number = input()
+number = 12
+i = 2
+while i < number:
+    if number % i == 0:
+        print (i)
+    i = i + 1
+
+This code will print out all of the factors of 12 between 2 and 11.
+% returns the remainder of the two numbers, and the while loop checks whether i is less than the number
+By printing i whenever the remainder is 0, this code will return all factors of 12 between 2 and 11
