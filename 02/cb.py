@@ -46,7 +46,7 @@ def caught_speeding(speed, is_birthday):
     speed -= 5
   if speed <= 60: return 0
   elif speed > 60 and speed <= 80: return 1
-  elif speed > 80: return 2
+  else: return 2
 
 print ("Testing string_times('Oh Boy!', 2): ")
 print (string_times('Oh Boy!', 2))
