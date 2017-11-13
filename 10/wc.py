@@ -8,8 +8,6 @@ def find_alphas(w):
         if l.isalpha():
             all_letters = all_letters + l
     return all_letters
-#returns all alphabetical letters of word
-#fix for: conjunctions
 
 def make_dict_of_nextwords(wordlist):
     '''
@@ -25,8 +23,10 @@ def make_dict_of_nextwords(wordlist):
         dict.setdefault(curr_word, [])
         #add the next word in the wordlist as a value for the word in dict
         dict[curr_word].append(next_word)
+    #accounts for the last word
+    last_word = wordlist[len(wordlist)-1]
+    dict.setdefault(last_word, [])
     return dict
-#for every character in wordlist, keeps track of how many times each char appears
 
 def read_txt_track_words(f):
     '''
@@ -43,31 +43,11 @@ def read_txt_track_words(f):
         l.append(w)
     d = make_dict_of_nextwords(l)
     return d
-#function reads through a file and returns the frequency of every word
 
 #=========================================================================
 
 d = read_txt_track_words("hamlet.txt")
-#print(d)
+print(d)
 
 for i in d:
     print( i, ": ", d[i])
-
-'''
-NOTES:
-v = list(d.values())
-v.sort()
-print(v)
-
-#stemming: conovert similar words (make, makes, made, etc.) into the same word
-#this creates a different count for said "main" word
-
-#l=[x for x in range(10)]
-#l = [c for c in "hello world"]
-l=[k.upper() for k in d if d[k] > 5]
-[ (x,y) for x in range(4) for y in range(5) ]
-print (l)
-
-test = {'lol': [1,2,3,4], 'two': [2,2,2]}
-print(test)
-'''
